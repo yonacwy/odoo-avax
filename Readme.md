@@ -66,8 +66,8 @@ Just the app not the docker stuff.
 
 You still need to install dependencies.
 
-pip install web3
-pip install --force-reinstall jsonschema==4.0.0
-pip install py-solc-x
+- pip install web3
+- pip install --force-reinstall jsonschema==4.0.0
+- pip install py-solc-x
 
 
