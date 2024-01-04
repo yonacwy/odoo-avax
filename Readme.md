@@ -58,3 +58,16 @@ I didn't want to use Metamask; I preferred to encrypt the key with a password en
 
 I hope you like it :-)
 
+##############
+
+Updated Avax App to Odoo 17
+
+Just the app not the docker stuff.
+
+You still need to install dependencies.
+
+pip install web3
+pip install --force-reinstall jsonschema==4.0.0
+pip install py-solc-x
+
+
