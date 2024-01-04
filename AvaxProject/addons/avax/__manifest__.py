@@ -3,7 +3,7 @@
 {
     "name": "Avax Blockchain Connector",
     "summary": "Avalanche Smart Contract",
-    "version": "14.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Localization",
     'author': "Agustin Wisky",
     'website': "https://github.com/awisky",
@@ -28,5 +28,7 @@
     ],
     "external_dependencies": {"python": ["web3", "solcx"]},
     'installable': True,
+    'application': True,
     'auto_install': False,
+    'license': 'OPL-1',
 }

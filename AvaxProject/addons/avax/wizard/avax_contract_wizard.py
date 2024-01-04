@@ -31,7 +31,7 @@ class AvaxContractWizard(models.TransientModel):
     function_id = fields.Many2one('avax.contract.function', readonly=True)
     contract_id = fields.Many2one(related='function_id.contract_id')
 
-    state_mutability = fields.Selection(related='function_id.state_mutability')
+    mutability = fields.Selection(related='function_id.mutability')
     input_ids = fields.One2many(
         'avax.contract.wizard.input', 'wizard_id')
 
@@ -62,11 +62,11 @@ class AvaxContractWizard(models.TransientModel):
         w3 = Web3(avax_provider)
         contract = w3.eth.contract(
             address=self.contract_id.address, abi=self.contract_id.abi)
-        if self.function_id.state_mutability == 'view':
+        if self.function_id.mutability == 'view':
             return self.action_test_view(contract)
-        elif self.function_id.state_mutability == 'payable':
+        elif self.function_id.mutability == 'payable':
             return self.action_test_payable(contract, w3)
-        elif self.function_id.state_mutability == 'nonpayable':
+        elif self.function_id.mutability == 'nonpayable':
             return self.action_test_payable(contract, w3)
 
     def action_test_view(self, contract):

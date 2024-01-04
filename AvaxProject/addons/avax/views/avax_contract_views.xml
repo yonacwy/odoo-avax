@@ -11,7 +11,7 @@
                     <group>
                         <field name="name" />
                         <field name="contract_id" />
-                        <field name="state_mutability" />
+                        <field name="mutability" />
                     </group>
                     <notebook>
                         <page name="inputs" string="Inputs">
@@ -48,9 +48,12 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_test" string="Test" type="object" class="oe_highlight" attrs="{'invisible': [('address', '=', False)]}"/>
-                    <button name="action_compile" string="Compile" type="object" class="oe_highlight" attrs="{'invisible': [('abi', '!=', False)]}" />
-                    <button name="action_deploy" string="Deploy" type="object" class="oe_highlight" attrs="{'invisible': [('address', '!=', False)]}"/>
+                    <button name="action_test" string="Test" type="object" class="oe_highlight"
+                              invisible="address != 'False'"/>                    
+                    <button name="action_compile" string="Compile" type="object" class="oe_highlight"
+                              invisible="abi != 'False'"/>                    
+                    <button name="action_deploy" string="Deploy" type="object" class="oe_highlight"
+                              invisible="address != 'False'"/>                    
                 </header>
                 <sheet>
                     <group>
@@ -65,7 +68,7 @@
                                 <tree editable="bottom">
                                     <field name="name" />
                                     <field name="id" invisible="1"/>
-                                    <field name="state_mutability" />
+                                    <field name="mutability" />
                                     <button name="%(avax_contract_wizard_form_action)d" context="{'function_id': id}" type="action" title="Test this function" icon="fa-refresh" />
                                 </tree>
                             </field>

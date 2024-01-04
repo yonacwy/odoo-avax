@@ -21,9 +21,12 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_generate" string="Generate" type="object" class="oe_highlight" attrs="{'invisible': [('address', '!=', False)]}" />
-                    <button name="action_get_balance" string="Get Balance" type="object" class="oe_highlight" attrs="{'invisible': [('address', '=', False)]}" />
-                    <button name="action_send" string="Send" type="object" class="oe_highlight" attrs="{'invisible': [('address', '=', False)]}" />
+                    <button name="action_generate" string="Generate" type="object" class="oe_highlight"
+                              invisible="address != 'False'"/>                       
+                    <button name="action_get_balance" string="Get Balance" type="object" class="oe_highlight"
+                              invisible="address != 'False'"/>                       
+                    <button name="action_send" string="Send" type="object" class="oe_highlight"
+                              invisible="address != 'False'"/>                       
                 </header>
                 <sheet>
                     <field name="name" />

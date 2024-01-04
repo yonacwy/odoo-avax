@@ -7,16 +7,20 @@
             <form string="Avax Contract Tester">
                 <group>
                     <field name="function_id" />
-                    <field name="state_mutability" />
-                    <field name="account_id" attrs="{'invisible': [('state_mutability', '=', 'view')]}" />
-                    <field name="value" attrs="{'invisible': [('state_mutability', '!=', 'payable')]}" />
-                    <field name="password" password="1" attrs="{'invisible': [('state_mutability', '=', 'view')]}" />
+                    <field name="mutability" />
+                    <field name="account_id"
+                              invisible="mutability != 'view'"/>                    
+                    <field name="value"
+                              invisible="mutability != 'payable'"/>                    
+                    <field name="password" password="1"
+                              invisible="mutability != 'view'"/>                     
                 </group>
                 <field name="input_ids" nolabel="1" mode="tree">
                     <tree editable="bottom" create="false" delete="false">
                         <field name="input_id" force_save="1"/>
                         <field name="input_type" force_save="1"/>
-                        <field name="account_id" force_save="1" attrs="{'readonly': [('input_type', '!=', 'address')]}" />
+                        <field name="account_id" force_save="1"
+                              readonly="input_type != 'address'"/>                        
                         <field name="value" force_save="1"/>
                     </tree>
                 </field>

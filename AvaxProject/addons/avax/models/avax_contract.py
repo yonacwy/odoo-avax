@@ -35,7 +35,7 @@ class AvaxContractFunction(models.Model):
 
     name = fields.Char(required=True)
     contract_id = fields.Many2one('avax.contract')
-    state_mutability = fields.Selection(selection=[(
+    mutability = fields.Selection(selection=[(
         'view', 'View'), ('payable', 'Payable'), ('nonpayable', 'Non Payable')])
     input_ids = fields.One2many(
         'avax.contract.function.input', 'function_id')
@@ -95,7 +95,7 @@ class AvaxContract(models.Model):
                         avax_func = avax_fun_obj.create(
                             {'name': e['name'],
                              'contract_id': rec.id,
-                             'state_mutability': e['stateMutability'],
+                             'mutability': e['Mutability'],
                              'input_ids': inputs})
                         rec.function_ids |= avax_func
 
